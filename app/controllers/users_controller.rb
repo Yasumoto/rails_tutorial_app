@@ -8,7 +8,10 @@ class UsersController < ApplicationController
   end
 
   def create
-    @user = User.new(params[:user])
+    @user = User.new(name:                  params[:name],
+                     email:                 params[:email],
+                     password:              params[:password],
+                     password_confirmation: params[:password_confirmation])
     if @user.save
       sign_in @user
       flash[:success] = "Welcome to the Sample App!"
