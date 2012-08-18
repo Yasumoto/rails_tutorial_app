@@ -12,3 +12,8 @@ RSpec::Matchers.define :have_error_message do |message|
   end
 end
 
+RSpec::Matchers.define :have_signin do
+  match do |page|
+    page.should have_selector('title', text: 'Sign in')
+  end
+end
